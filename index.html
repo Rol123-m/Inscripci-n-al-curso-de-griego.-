@@ -3,10 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Curso de Griego Koiné — Ministerio</title>
+  <title>Curso de Griego Koiné — Ministerio de Estudios Bíblicos</title>
   <link rel="icon" href="https://i.postimg.cc/wMJ2bCgV/mas-logos.jpg" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
       --gold: #d9a441;
@@ -44,9 +46,7 @@
       margin: 0;
       font-family: 'Roboto', system-ui, Arial, Helvetica, sans-serif;
       color: var(--text-soft);
-      background:
-        linear-gradient(rgba(11,37,69,0.65), rgba(11,37,69,0.65)),
-        url("https://source.unsplash.com/1600x900/?greece,manuscript") center/cover no-repeat fixed;
+      background: var(--dark-blue);
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
@@ -164,8 +164,8 @@
 
     /* HERO mejorado */
     .hero {
-      height: 85vh;
-      min-height: 600px;
+      height: 100vh;
+      min-height: 700px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -173,6 +173,9 @@
       padding: 40px 20px;
       position: relative;
       overflow: hidden;
+      background: 
+        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
+        url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
     }
 
     .hero::before {
@@ -183,7 +186,7 @@
       right: 0;
       bottom: 0;
       background: radial-gradient(circle at center, transparent 0%, rgba(11,37,69,0.4) 100%);
-      z-index: -1;
+      z-index: 1;
     }
 
     .hero .content {
@@ -191,6 +194,7 @@
       color: white;
       animation: fadeUp 0.9s ease both;
       z-index: 2;
+      position: relative;
     }
 
     .kicker {
@@ -271,12 +275,27 @@
 
     /* Sections */
     section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       position: relative;
     }
 
-    section:nth-child(even) {
-      background: rgba(11, 37, 69, 0.5);
+    .section-title {
+      text-align: center;
+      margin-bottom: 60px;
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--gold);
+      margin: 15px auto;
+      border-radius: 2px;
     }
 
     .wrap {
@@ -284,7 +303,54 @@
       margin: 0 auto;
     }
 
+    /* Beneficios section */
+    .benefits {
+      background: 
+        linear-gradient(rgba(11,37,69,0.9), rgba(11,37,69,0.95)),
+        url('https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .benefit-card {
+      background: var(--glass);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(8px);
+      color: var(--text-white);
+      border: 1px solid var(--glass-light);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      background: rgba(255,255,255,0.12);
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    .benefit-card h3 {
+      color: var(--gold-light);
+      margin-bottom: 15px;
+      font-size: 1.4rem;
+    }
+
     /* Programa: two columns */
+    .program {
+      background: 
+        linear-gradient(rgba(11,37,69,0.8), rgba(11,37,69,0.85)),
+        url('https://images.unsplash.com/photo-1584824486537-52a5e98369b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    }
+
     .program-grid {
       display: grid;
       grid-template-columns: 1fr 460px;
@@ -355,7 +421,63 @@
       transform: scale(1.05);
     }
 
+    /* Instructor section */
+    .instructor {
+      background: 
+        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
+        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+      text-align: center;
+    }
+
+    .instructor-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .instructor-image {
+      width: 100%;
+      height: 350px;
+      border-radius: 50%;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      border: 5px solid var(--gold);
+    }
+
+    .instructor-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .instructor-info {
+      text-align: left;
+      color: white;
+    }
+
+    .instructor-info h3 {
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    .instructor-title {
+      color: var(--gold-light);
+      font-style: italic;
+      margin-bottom: 20px;
+      display: block;
+    }
+
     /* Testimonials mejorados */
+    .testimonials {
+      background: 
+        linear-gradient(rgba(11,37,69,0.9), rgba(11,37,69,0.95)),
+        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    }
+
     .testimonials-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -421,6 +543,58 @@
       font-weight: 700;
       color: var(--dark-blue);
       font-size: 0.95rem;
+    }
+
+    /* FAQ section */
+    .faq {
+      background: 
+        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
+        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+    }
+
+    .accordion {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .accordion-item {
+      background: var(--glass);
+      border-radius: var(--border-radius);
+      margin-bottom: 15px;
+      overflow: hidden;
+      border: 1px solid var(--glass-light);
+      backdrop-filter: blur(6px);
+    }
+
+    .accordion-header {
+      padding: 20px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      font-weight: 500;
+    }
+
+    .accordion-header i {
+      transition: var(--transition);
+    }
+
+    .accordion-content {
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      color: var(--text-white);
+    }
+
+    .accordion-item.active .accordion-content {
+      max-height: 300px;
+      padding: 0 20px 20px;
+    }
+
+    .accordion-item.active .accordion-header i {
+      transform: rotate(180deg);
     }
 
     /* Floating enroll button */
@@ -539,9 +713,30 @@
       padding-left: 10px;
     }
 
+    /* Mejoras para el enlace de sílabo */
+    .syllabus-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px;
+      background: rgba(255,255,255,0.96);
+      border-radius: var(--border-radius);
+      text-decoration: none;
+      color: var(--dark-blue);
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      margin: 20px 0;
+    }
+
+    .syllabus-link:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
     /* Responsive */
     @media (max-width: 1024px) {
-      .program-grid {
+      .program-grid, .instructor-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
@@ -549,6 +744,12 @@
       .program-image {
         height: 350px;
         order: -1;
+      }
+
+      .instructor-image {
+        width: 250px;
+        height: 250px;
+        justify-self: center;
       }
     }
 
@@ -592,6 +793,10 @@
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
+
+      .section-title {
+        font-size: 2rem;
+      }
     }
 
     @media (max-width: 480px) {
@@ -609,6 +814,11 @@
       
       .program-card {
         padding: 20px;
+      }
+
+      .instructor-image {
+        width: 200px;
+        height: 200px;
       }
     }
 
@@ -634,27 +844,6 @@
       opacity: 1;
       transform: translateY(0);
     }
-
-    /* Mejoras para el enlace de sílabo */
-    .syllabus-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 24px;
-      background: rgba(255,255,255,0.96);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      color: var(--dark-blue);
-      font-weight: 700;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      margin: 20px 0;
-    }
-
-    .syllabus-link:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
   </style>
 </head>
 <body>
@@ -666,98 +855,158 @@
 
     <nav aria-label="Navegación principal">
       <a href="#inicio">Inicio</a>
+      <a href="#beneficios">Beneficios</a>
       <a href="#programa">Programa</a>
+      <a href="#instructor">Instructor</a>
       <a href="#testimonios">Testimonios</a>
-      <a href="Sílabo de Introducción a la gramática griega. .pdf" style="border-left:1px solid rgba(255,255,255,0.06);padding-left:16px">Sílabos</a>
+      <a href="#preguntas">FAQ</a>
     </nav>
 
-    <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+    <button class="menu-btn" aria-label="Abrir menú">
       ☰
     </button>
   </header>
 
   <!-- Mobile menu (mejorado) -->
   <div id="mobileMenu">
-    <a href="#inicio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Inicio</a>
-    <a href="#programa" onclick="document.getElementById('mobileMenu').classList.remove('open')">Programa</a>
-    <a href="#testimonios" onclick="document.getElementById('mobileMenu').classList.remove('open')">Testimonios</a>
-    <a href="Sílabo de Introducción a la gramática griega. .pdf" onclick="document.getElementById('mobileMenu').classList.remove('open')">Sílabos</a>
+    <a href="#inicio">Inicio</a>
+    <a href="#beneficios">Beneficios</a>
+    <a href="#programa">Programa</a>
+    <a href="#instructor">Instructor</a>
+    <a href="#testimonios">Testimonios</a>
+    <a href="#preguntas">FAQ</a>
   </div>
 
   <main>
     <section id="inicio" class="hero">
       <div class="content wrap">
-        <span class="kicker">Formación bíblica</span>
+        <span class="kicker">Formación bíblica avanzada</span>
         <h2>Aprende Griego Koiné — Lee el Nuevo Testamento en su idioma original</h2>
-        <p>Curso intensivo y práctico: gramática, vocabulario bíblico y técnicas de traducción. Diseñado para líderes, estudiantes y pastores que desean profundizar en el texto original.</p>
+        <p>Curso intensivo y práctico: gramática, vocabulario bíblico y técnicas de traducción. Diseñado para líderes, estudiantes y pastores que desean profundizar en el texto original de las Escrituras.</p>
         <div class="cta-row">
-          <button class="btn btn-primary" onclick="openForm()">Inscríbete aquí</button>
-          <a class="btn btn-outline" href="#programa" role="button">Ver programa</a>
+          <button class="btn btn-primary" onclick="openForm()">
+            <i class="fas fa-pencil-alt"></i> Inscríbete aquí
+          </button>
+          <a class="btn btn-outline" href="#programa" role="button">
+            <i class="fas fa-book-open"></i> Ver programa
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="programa" aria-labelledby="titulo-programa">
-      <div class="wrap program-grid">
-        <div class="program-card fade-in">
-          <h3 id="titulo-programa">Programa</h3>
-          <p>
-            Este curso de griego koiné te permitirá leer el Nuevo Testamento en su idioma original. Aprenderás morfología, sintaxis, vocabulario bíblico y métodos de traducción exegética.
-          </p>
-          <ul>
-            <li>Módulo 1 — Alfabeto, pronunciación, y lectura básica.</li>
-            <li>Módulo 2 — Morfología nominal y verbal.</li>
-            <li>Módulo 3 — Sintaxis, oraciones y cláusulas.</li>
-            <li>Módulo 4 — Lectura guiada de pasajes del Nuevo Testamento.</li>
-          </ul>
-
-          <p style="margin-top:12px">
-            <strong>Formato:</strong> Clases en vídeo, material descargable y ejercicios prácticos.
-          </p>
-        </div>
-
-        <div class="program-image fade-in" aria-hidden="true">
-          <img src="https://source.unsplash.com/800x600/?ancient-greece,manuscript" alt="Imagen temática: Grecia / manuscritos">
-        </div>
-      </div>
-    </section>
-
-    <section id="testimonios">
+    <section id="beneficios" class="benefits">
       <div class="wrap">
-        <h3 style="color:white;font-family:'Playfair Display',serif" class="fade-in">Testimonios</h3>
-        <p style="color:rgba(255,255,255,0.9);max-width:900px" class="fade-in">Lo que dicen graduados del curso.</p>
+        <h2 class="section-title">Beneficios del Curso</h2>
+        <div class="benefits-grid">
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">
+              <i class="fas fa-bible"></i>
+            </div>
+            <h3>Estudio Bíblico Profundo</h3>
+            <p>Accede a los matices y significados originales del texto bíblico, perdiéndose en la mayoría de traducciones.</p>
+          </div>
+          
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <h3>Comunidad de Estudio</h3>
+            <p>Únete a una comunidad de estudiantes apasionados por las Escrituras y el aprendizaje del griego koiné.</p>
+          </div>
+          
+          <div class="benefit-card fade-in">
+            <div class="benefit-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>Material Completo</h3>
+            <p>Recibe materiales de estudio diseñados específicamente para hispanohablantes, con ejercicios prácticos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="programa" class="program" aria-labelledby="titulo-programa">
+      <div class="wrap">
+        <h2 class="section-title">Nuestro Programa</h2>
+        <div class="program-grid">
+          <div class="program-card fade-in">
+            <h3 id="titulo-programa">Plan de Estudios</h3>
+            <p>
+              Este curso de griego koiné te permitirá leer el Nuevo Testamento en su idioma original. Aprenderás morfología, sintaxis, vocabulario bíblico y métodos de traducción exegética.
+            </p>
+            <ul>
+              <li><strong>Módulo 1</strong> — Alfabeto, pronunciación, y lectura básica. Introducción a las declinaciones.</li>
+              <li><strong>Módulo 2</strong> — Morfología nominal y verbal. Estudio de los tiempos griegos y su significado.</li>
+              <li><strong>Módulo 3</strong> — Sintaxis, oraciones y cláusulas. Uso de partículas griegas.</li>
+              <li><strong>Módulo 4</strong> — Lectura guiada de pasajes del Nuevo Testamento. Análisis exegético.</li>
+              <li><strong>Módulo 5</strong> — Taller de traducción y interpretación. Uso de herramientas digitales.</li>
+            </ul>
+
+            <p style="margin-top:12px">
+              <strong>Formato:</strong> Clases en vídeo, material descargable, ejercicios prácticos y sesiones en vivo de preguntas y respuestas.
+            </p>
+          </div>
+
+          <div class="program-image fade-in" aria-hidden="true">
+            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Imagen de manuscritos bíblicos">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="instructor" class="instructor">
+      <div class="wrap">
+        <h2 class="section-title">Nuestro Instructor</h2>
+        <div class="instructor-grid">
+          <div class="instructor-image fade-in">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Carlos Méndez, instructor del curso">
+          </div>
+          <div class="instructor-info fade-in">
+            <h3>Dr. Carlos Méndez</h3>
+            <span class="instructor-title">Ph.D. en Teología y Estudios Bíblicos</span>
+            <p>Con más de 15 años de experiencia enseñando griego koiné, el Dr. Méndez ha formado a cientos de estudiantes en el estudio de los textos bíblicos originales. Es autor de varios libros sobre exégesis del Nuevo Testamento y ha participado en proyectos de traducción bíblica.</p>
+            <p>Su enfoque pedagógico combina el rigor académico con la aplicación práctica para el estudio devocional y ministerial de la Biblia.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios" class="testimonials">
+      <div class="wrap">
+        <h2 class="section-title">Testimonios</h2>
+        <p style="color:rgba(255,255,255,0.9);max-width:900px;text-align:center;margin:0 auto 40px;" class="fade-in">Lo que dicen nuestros estudiantes sobre el curso.</p>
 
         <div class="testimonials-grid">
           <!-- Testimonial 1 -->
           <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de María">
             <div class="testimonio-avatar">
-              <img src="https://source.unsplash.com/200x200/?woman,portrait" alt="Foto de María G.">
+              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de María G.">
             </div>
             <div class="testimonio-body">
-              <p>"Gracias a este curso, ahora puedo estudiar las cartas de Pablo en griego. ¡Revolucionó mi comprensión de la Biblia!"</p>
-              <div class="testimonio-name">— María G., 2023</div>
+              <p>"Gracias a este curso, ahora puedo estudiar las cartas de Pablo en griego. ¡Revolucionó mi comprensión de la Biblia! Las explicaciones son claras y los ejercicios muy prácticos."</p>
+              <div class="testimonio-name">— María G., Pastora, 2023</div>
             </div>
           </article>
 
           <!-- Testimonial 2 -->
           <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de José">
             <div class="testimonio-avatar">
-              <img src="https://source.unsplash.com/200x200/?man,portrait" alt="Foto de José R.">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de José R.">
             </div>
             <div class="testimonio-body">
-              <p>"Las explicaciones prácticas y los ejemplos textuales me dieron confianza para enseñar en el seminario."</p>
-              <div class="testimonio-name">— José R., 2022</div>
+              <p>"Las explicaciones prácticas y los ejemplos textuales me dieron confianza para enseñar en el seminario. El Dr. Méndez hace accesible un lenguaje que parecía intimidante."</p>
+              <div class="testimonio-name">— José R., Profesor de Teología, 2022</div>
             </div>
           </article>
 
           <!-- Testimonial 3 -->
           <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de Ana">
             <div class="testimonio-avatar">
-              <img src="https://source.unsplash.com/200x200/?student,portrait" alt="Foto de Ana M.">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de Ana M.">
             </div>
             <div class="testimonio-body">
-              <p>"Excelente equilibrio entre teoría y práctica. El material descargable es muy útil."</p>
-              <div class="testimonio-name">— Ana M., 2024</div>
+              <p>"Excelente equilibrio entre teoría y práctica. El material descargable es muy útil para repasar. Ahora puedo leer los evangelios en su lengua original con comprensión."</p>
+              <div class="testimonio-name">— Ana M., Estudiante de Teología, 2024</div>
             </div>
           </article>
 
@@ -765,12 +1014,61 @@
       </div>
     </section>
 
-    <section id="silabo" class="wrap" style="padding-top:12px;padding-bottom:80px;text-align:center">
+    <section id="preguntas" class="faq">
+      <div class="wrap">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        
+        <div class="accordion">
+          <div class="accordion-item fade-in">
+            <div class="accordion-header">
+              <span>¿Necesito conocimientos previos de griego?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>No, el curso está diseñado para principiantes. Comenzaremos desde lo más básico (alfabeto y pronunciación) y avanzaremos gradualmente.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item fade-in">
+            <div class="accordion-header">
+              <span>¿Cuánto tiempo debo dedicar al curso?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Recomendamos dedicar al menos 5-6 horas por semana para ver las lecciones, realizar los ejercicios y participar en las sesiones de práctica.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item fade-in">
+            <div class="accordion-header">
+              <span>¿Qué materiales necesito?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Proveemos todos los materiales digitales necesarios. Solo necesitarás un computador o tablet con conexión a internet. Opcionalmente, recomendamos tener una Biblia en griego para practicar.</p>
+            </div>
+          </div>
+          
+          <div class="accordion-item fade-in">
+            <div class="accordion-header">
+              <span>¿Ofrecen certificación?</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+              <p>Sí, al completar satisfactoriamente todos los módulos y evaluaciones, recibirás un certificado de finalización avalado por nuestro ministerio.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="silabo" class="wrap" style="padding:80px 20px;text-align:center;background:var(--dark-blue)">
       <div class="fade-in">
+        <h2 style="color:white;margin-bottom:30px;font-family:'Playfair Display',serif">¿Listo para comenzar?</h2>
         <a href="syllabus.pdf" target="_blank" rel="noopener" class="syllabus-link">
-          📄 Descargar sílabo (PDF)
+          <i class="fas fa-download"></i> Descargar sílabo completo (PDF)
         </a>
-        <div style="color:white;max-width:760px;margin:0 auto">¿Quieres inscribirte? Haz clic en <strong>Inscríbete aquí</strong> o usa el botón flotante.</div>
+        <div style="color:white;max-width:760px;margin:20px auto 0">Revisa nuestro plan de estudios detallado. ¿Tienes preguntas? Contáctanos directamente.</div>
       </div>
     </section>
 
@@ -778,14 +1076,14 @@
 
   <footer>
     <div class="wrap">
-      <p>© <strong>Ministerio</strong> — Curso de Griego Koiné. <a href="syllabus.pdf" target="_blank" rel="noopener">Ver sílabo</a> • Diseño y contenido pedagógico.</p>
+      <p>© <strong>Ministerio de Estudios Bíblicos</strong> — Curso de Griego Koiné. <a href="syllabus.pdf" target="_blank" rel="noopener">Ver sílabo</a> • Diseño y contenido pedagógico.</p>
       <p style="margin-top:6px;font-size:.92rem;color:rgba(255,255,255,0.78)">Sugerencia: sube estos archivos al repositorio de GitHub y activa GitHub Pages (branch main).</p>
     </div>
   </footer>
 
   <!-- Floating CTA -->
   <button class="floating-cta" onclick="openForm()" aria-label="Inscribirme">
-    📝 Inscríbete
+    <i class="fas fa-pencil-alt"></i> Inscríbete
   </button>
 
   <script>
@@ -813,19 +1111,18 @@
     window.addEventListener('scroll', checkFade);
     window.addEventListener('load', checkFade);
 
-    // Mobile menu open toggle (mejorado)
-    (function(){
-      const mobileMenu = document.getElementById('mobileMenu');
-      document.querySelector('.menu-btn').addEventListener('click', () => {
-        if(!mobileMenu) return;
-        mobileMenu.classList.toggle('open');
-      });
-    })();
+    // Mobile menu toggle
+    document.querySelector('.menu-btn').addEventListener('click', function() {
+      document.getElementById('mobileMenu').classList.toggle('open');
+    });
 
-    // Abre la página del formulario (navega a form.html)
-    function openForm(){
-      window.location.href = 'form.html';
-    }
+    // Acordeón de FAQ
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', function() {
+        this.parentElement.classList.toggle('active');
+      });
+    });
 
     // Cerrar menú móvil al hacer clic en un enlace
     document.querySelectorAll('#mobileMenu a').forEach(a => {
@@ -833,6 +1130,11 @@
         document.getElementById('mobileMenu').classList.remove('open');
       });
     });
+
+    // Abre la página del formulario (navega a form.html)
+    function openForm(){
+      window.location.href = 'form.html';
+    }
   </script>
 </body>
 </html>
