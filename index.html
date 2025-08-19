@@ -1,0 +1,424 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Curso de Griego Koiné — Ministerio</title>
+  <link rel="icon" href="https://i.postimg.cc/wMJ2bCgV/mas-logos.jpg" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --gold: #d9a441;
+      --dark-blue: #0b2545;
+      --glass: rgba(255,255,255,0.08);
+      --card-bg: rgba(255,255,255,0.98);
+      --text-soft: rgba(0,0,0,0.75);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Roboto',system-ui,Arial,Helvetica,sans-serif;
+      color:var(--text-soft);
+      background:
+        linear-gradient(rgba(11,37,69,0.45), rgba(11,37,69,0.45)),
+        url("https://source.unsplash.com/1600x900/?greece,manuscript") center/cover no-repeat fixed;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      overflow-x:hidden;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:50;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:10px 20px;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(90deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-bottom:1px solid rgba(255,255,255,0.04);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .brand img{
+      width:56px;
+      height:56px;
+      object-fit:cover;
+      border-radius:8px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.35);
+    }
+    .brand h1{
+      margin:0;
+      font-family:'Playfair Display',serif;
+      font-weight:700;
+      color: #fff;
+      letter-spacing:0.4px;
+      font-size:1.05rem;
+    }
+
+    nav{
+      display:flex;
+      gap:18px;
+      align-items:center;
+    }
+    nav a{
+      color:rgba(255,255,255,0.92);
+      text-decoration:none;
+      font-weight:500;
+      padding:8px 12px;
+      border-radius:8px;
+      transition:all .18s ease;
+      font-size:0.95rem;
+    }
+    nav a:hover{ background: rgba(255,255,255,0.06); transform:translateY(-2px); }
+
+    /* Mobile menu button */
+    .menu-btn{
+      display:none;
+      background:transparent;
+      border:1px solid rgba(255,255,255,0.08);
+      padding:8px;
+      border-radius:8px;
+      color:white;
+    }
+
+    main{ padding-top:94px; }
+
+    /* HERO */
+    .hero{
+      height:78vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:30px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero .content{
+      max-width:1100px;
+      color:white;
+      animation:fadeUp .9s ease both;
+    }
+    .kicker{
+      display:inline-block;
+      background:rgba(255,255,255,0.06);
+      padding:8px 14px;
+      border-radius:999px;
+      font-weight:600;
+      margin-bottom:18px;
+      letter-spacing:0.6px;
+    }
+    .hero h2{
+      margin:0 0 12px;
+      font-family:'Playfair Display',serif;
+      font-size:clamp(2rem,3.8vw,3.25rem);
+      line-height:1.02;
+      letter-spacing:-1px;
+      text-shadow:0 6px 24px rgba(0,0,0,0.55);
+    }
+    .hero p{
+      font-size:1.05rem;
+      max-width:760px;
+      margin:0 auto 22px;
+      opacity:0.95;
+    }
+    .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      border:0;
+      padding:12px 18px;
+      font-weight:600;
+      border-radius:12px;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+    }
+    .btn-primary{
+      background:linear-gradient(180deg,var(--gold), #b8862e);
+      color:var(--dark-blue);
+    }
+    .btn-primary:hover{ transform:translateY(-3px); box-shadow:0 18px 40px rgba(217,164,65,0.18); }
+    .btn-outline{
+      background:transparent;
+      color:white;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    /* Sections */
+    section{padding:64px 20px;}
+    .wrap{max-width:1200px;margin:0 auto}
+
+    /* Programa: two columns */
+    .program-grid{
+      display:grid;
+      grid-template-columns: 1fr 460px;
+      gap:36px;
+      align-items:center;
+    }
+    .program-card{
+      background:var(--glass);
+      padding:28px;
+      border-radius:14px;
+      backdrop-filter: blur(6px);
+      box-shadow:0 10px 30px rgba(2,6,23,0.45);
+      color: #fff;
+    }
+    .program-card h3{font-family:'Playfair Display',serif;margin-top:0}
+    .program-image{
+      width:100%;
+      height:320px;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 12px 30px rgba(2,6,23,0.45);
+    }
+    .program-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Testimonials */
+    .testimonials-grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+      gap:18px;
+      margin-top:18px;
+    }
+    .testimonio-card{
+      background:var(--card-bg);
+      border-radius:12px;
+      padding:18px;
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      box-shadow:0 8px 28px rgba(6,12,28,0.08);
+      transition:transform .18s ease;
+    }
+    .testimonio-card:hover{ transform:translateY(-6px) }
+    .testimonio-avatar{
+      width:68px;height:68px;border-radius:999px;flex-shrink:0;overflow:hidden;
+      box-shadow:0 8px 20px rgba(0,0,0,0.12);
+    }
+    .testimonio-avatar img{width:100%;height:100%;object-fit:cover;display:block}
+    .testimonio-body p{margin:0 0 8px;font-style:italic;color:#222}
+    .testimonio-name{font-weight:700;color:var(--dark-blue);font-size:.95rem}
+
+    /* Floating enroll button */
+    .floating-cta{
+      position:fixed;
+      right:26px;
+      bottom:26px;
+      z-index:70;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      cursor:pointer;
+      background:linear-gradient(180deg,var(--gold), #b8862e);
+      color:var(--dark-blue);
+      font-weight:700;
+      box-shadow:0 18px 48px rgba(11,37,69,0.25);
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .floating-cta:hover{ transform:translateY(-4px); box-shadow:0 30px 68px rgba(11,37,69,0.32) }
+
+    footer{
+      padding:32px 20px;
+      background:linear-gradient(180deg, rgba(11,37,69,0.8), rgba(3,13,35,0.9));
+      color:rgba(255,255,255,0.9);
+      text-align:center;
+    }
+    footer a{color:var(--gold);text-decoration:none;font-weight:600}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .program-grid{ grid-template-columns: 1fr; }
+      .hero{ height:72vh; padding:20px; }
+      nav{ display:none; }
+      .menu-btn{ display:inline-flex; }
+    }
+
+    @keyframes fadeUp{
+      from{ transform:translateY(10px); opacity:0 }
+      to{ transform:translateY(0); opacity:1 }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="https://i.postimg.cc/wMJ2bCgV/mas-logos.jpg" alt="Logo del ministerio">
+      <h1>Curso Griego Koiné</h1>
+    </div>
+
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#programa">Programa</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#silabo" style="border-left:1px solid rgba(255,255,255,0.06);padding-left:16px">Sílabos</a>
+    </nav>
+
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.getElementById('mobileMenu').classList.toggle('open')">
+      ☰
+    </button>
+  </header>
+
+  <!-- Mobile menu (simple) -->
+  <div id="mobileMenu" style="display:none;position:fixed;inset:58px 16px auto 16px;z-index:60;">
+    <div style="background:rgba(255,255,255,0.03);padding:12px;border-radius:10px;backdrop-filter:blur(6px);">
+      <a href="#inicio" style="display:block;padding:8px 0;color:white;text-decoration:none">Inicio</a>
+      <a href="#programa" style="display:block;padding:8px 0;color:white;text-decoration:none">Programa</a>
+      <a href="#testimonios" style="display:block;padding:8px 0;color:white;text-decoration:none">Testimonios</a>
+      <a href="#silabo" style="display:block;padding:8px 0;color:white;text-decoration:none">Sílabos</a>
+    </div>
+  </div>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="content wrap">
+        <span class="kicker">Formación bíblica</span>
+        <h2>Aprende Griego Koiné — Lee el Nuevo Testamento en su idioma original</h2>
+        <p>Curso intensivo y práctico: gramática, vocabulario bíblico y técnicas de traducción. Diseñado para líderes, estudiantes y pastores que desean profundizar en el texto original.</p>
+        <div class="cta-row">
+          <button class="btn btn-primary" onclick="openForm()">Inscríbete aquí</button>
+          <a class="btn btn-outline" href="#programa" role="button">Ver programa</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="programa" aria-labelledby="titulo-programa">
+      <div class="wrap program-grid">
+        <div class="program-card">
+          <h3 id="titulo-programa">Programa</h3>
+          <p>
+            Este curso de griego koiné te permitirá leer el Nuevo Testamento en su idioma original. Aprenderás morfología, sintaxis, vocabulario bíblico y métodos de traducción exegética.
+          </p>
+          <ul style="color:white;line-height:1.8">
+            <li>Módulo 1 — Alfabeto, pronunciación, y lectura básica.</li>
+            <li>Módulo 2 — Morfología nominal y verbal.</li>
+            <li>Módulo 3 — Sintaxis, oraciones y cláusulas.</li>
+            <li>Módulo 4 — Lectura guiada de pasajes del Nuevo Testamento.</li>
+          </ul>
+
+          <p style="margin-top:12px">
+            <strong>Formato:</strong> Clases en vídeo, material descargable y ejercicios prácticos.
+          </p>
+        </div>
+
+        <div class="program-image" aria-hidden="true">
+          <img src="https://source.unsplash.com/800x600/?ancient-greece,manuscript" alt="Imagen temática: Grecia / manuscritos">
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonios">
+      <div class="wrap">
+        <h3 style="color:white;font-family:'Playfair Display',serif">Testimonios</h3>
+        <p style="color:rgba(255,255,255,0.9);max-width:900px">Lo que dicen graduados del curso.</p>
+
+        <div class="testimonials-grid">
+          <!-- Testimonial 1 -->
+          <article class="testimonio-card" role="article" aria-label="Testimonio de María">
+            <div class="testimonio-avatar">
+              <img src="https://source.unsplash.com/200x200/?woman,portrait" alt="Foto de María G.">
+            </div>
+            <div class="testimonio-body">
+              <p>"Gracias a este curso, ahora puedo estudiar las cartas de Pablo en griego. ¡Revolucionó mi comprensión de la Biblia!"</p>
+              <div class="testimonio-name">— María G., 2023</div>
+            </div>
+          </article>
+
+          <!-- Testimonial 2 -->
+          <article class="testimonio-card" role="article" aria-label="Testimonio de José">
+            <div class="testimonio-avatar">
+              <img src="https://source.unsplash.com/200x200/?man,portrait" alt="Foto de José R.">
+            </div>
+            <div class="testimonio-body">
+              <p>"Las explicaciones prácticas y los ejemplos textuales me dieron confianza para enseñar en el seminario."</p>
+              <div class="testimonio-name">— José R., 2022</div>
+            </div>
+          </article>
+
+          <!-- Testimonial 3 -->
+          <article class="testimonio-card" role="article" aria-label="Testimonio de Ana">
+            <div class="testimonio-avatar">
+              <img src="https://source.unsplash.com/200x200/?student,portrait" alt="Foto de Ana M.">
+            </div>
+            <div class="testimonio-body">
+              <p>"Excelente equilibrio entre teoría y práctica. El material descargable es muy útil."</p>
+              <div class="testimonio-name">— Ana M., 2024</div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="silabo" class="wrap" style="padding-top:12px;padding-bottom:80px;">
+      <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap;justify-content:center;">
+        <a href="syllabus.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:14px 18px;background:rgba(255,255,255,0.96);border-radius:12px;text-decoration:none;color:var(--dark-blue);font-weight:700;box-shadow:0 8px 28px rgba(2,6,23,0.08)">
+          Descargar sílabo (PDF)
+        </a>
+        <div style="color:white;max-width:760px">¿Quieres inscribirte? Haz clic en <strong>Inscríbete aquí</strong> o usa el botón flotante.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>© <strong>Ministerio</strong> — Curso de Griego Koiné. <a href="syllabus.pdf" target="_blank" rel="noopener">Ver sílabo</a> • Diseño y contenido pedagógico.</p>
+      <p style="margin-top:6px;font-size:.92rem;color:rgba(255,255,255,0.78)">Sugerencia: sube estos archivos al repositorio de GitHub y activa GitHub Pages (branch main).</p>
+    </div>
+  </footer>
+
+  <!-- Floating CTA -->
+  <button class="floating-cta" onclick="openForm()" aria-label="Inscribirme">
+    📝 Inscríbete
+  </button>
+
+  <script>
+    // Mobile menu open toggle (basic)
+    (function(){
+      const mobileMenu = document.getElementById('mobileMenu');
+      document.querySelector('.menu-btn').addEventListener('click', () => {
+        if(!mobileMenu) return;
+        if(mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
+          mobileMenu.style.display = 'block';
+          setTimeout(()=> mobileMenu.classList.add('open'), 20);
+        } else {
+          mobileMenu.classList.remove('open');
+          setTimeout(()=> mobileMenu.style.display = 'none', 220);
+        }
+      });
+    })();
+
+    // Abre la página del formulario (navega a form.html)
+    function openForm(){
+      // Navegar a la página del formulario (la página original "desaparece")
+      window.location.href = 'form.html';
+      // Si prefieres abrir en nueva pestaña, usa:
+      // window.open('form.html', '_blank');
+    }
+
+    // Simple progressive enhancement: close mobile menu on navigation clicks
+    document.querySelectorAll('nav a').forEach(a=>{
+      a.addEventListener('click', ()=> {
+        const mm = document.getElementById('mobileMenu');
+        if(mm) { mm.style.display='none'; mm.classList.remove('open'); }
+      })
+    });
+  </script>
+</body>
+</html>
