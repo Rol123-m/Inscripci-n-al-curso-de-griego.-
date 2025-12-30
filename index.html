@@ -3,854 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Curso de Griego Koiné — Ministerio de Estudios Bíblicos</title>
+  <title>Curso de Griego Koiné — Dirección Académica del Ministerio: "Vivos para servir"</title>
   <link rel="icon" href="https://i.postimg.cc/wMJ2bCgV/mas-logos.jpg" />
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --gold: #d9a441;
-      --gold-light: #e6ba61;
-      --gold-dark: #b8862e;
-      --dark-blue: #0b2545;
-      --dark-blue-light: #13345c;
-      --dark-blue-lighter: #1a4574;
-      --glass: rgba(255,255,255,0.08);
-      --glass-light: rgba(255,255,255,0.12);
-      --glass-dark: rgba(255,255,255,0.04);
-      --card-bg: rgba(255,255,255,0.98);
-      --text-soft: rgba(0,0,0,0.75);
-      --text-white: rgba(255,255,255,0.95);
-      --text-white-soft: rgba(255,255,255,0.78);
-      --shadow-sm: 0 4px 6px rgba(0,0,0,0.1);
-      --shadow-md: 0 8px 20px rgba(0,0,0,0.15);
-      --shadow-lg: 0 12px 30px rgba(0,0,0,0.2);
-      --transition: all 0.3s ease;
-      --border-radius: 12px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: 'Roboto', system-ui, Arial, Helvetica, sans-serif;
-      color: var(--text-soft);
-      background: var(--dark-blue);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-      line-height: 1.6;
-    }
-
-    /* Header mejorado */
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 24px;
-      backdrop-filter: blur(10px);
-      background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
-      border-bottom: 1px solid var(--glass-dark);
-      transition: var(--transition);
-    }
-
-    header.scrolled {
-      background: rgba(11, 37, 69, 0.95);
-      box-shadow: var(--shadow-sm);
-      padding: 8px 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .brand img {
-      width: 56px;
-      height: 56px;
-      object-fit: cover;
-      border-radius: 10px;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-    }
-
-    .brand:hover img {
-      transform: scale(1.05);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.4px;
-      font-size: 1.15rem;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-    }
-
-    nav {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    nav a {
-      color: rgba(255,255,255,0.92);
-      text-decoration: none;
-      font-weight: 500;
-      padding: 8px 16px;
-      border-radius: 8px;
-      transition: var(--transition);
-      font-size: 0.95rem;
-      position: relative;
-    }
-
-    nav a:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      right: -4px;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 16px;
-      width: 1px;
-      background: rgba(255,255,255,0.1);
-    }
-
-    nav a:hover {
-      background: var(--glass-light);
-      transform: translateY(-2px);
-    }
-
-    nav a:active {
-      transform: translateY(0);
-    }
-
-    /* Mobile menu button */
-    .menu-btn {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--glass-light);
-      padding: 8px 12px;
-      border-radius: 8px;
-      color: white;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .menu-btn:hover {
-      background: var(--glass-light);
-    }
-
-    main {
-      padding-top: 94px;
-    }
-
-    /* HERO mejorado */
-    .hero {
-      height: 100vh;
-      min-height: 700px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      position: relative;
-      overflow: hidden;
-      background: 
-        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
-        url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: radial-gradient(circle at center, transparent 0%, rgba(11,37,69,0.4) 100%);
-      z-index: 1;
-    }
-
-    .hero .content {
-      max-width: 1100px;
-      color: white;
-      animation: fadeUp 0.9s ease both;
-      z-index: 2;
-      position: relative;
-    }
-
-    .kicker {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      padding: 10px 20px;
-      border-radius: 999px;
-      font-weight: 600;
-      margin-bottom: 24px;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      font-size: 0.85rem;
-      backdrop-filter: blur(4px);
-      border: 1px solid var(--glass-light);
-    }
-
-    .hero h2 {
-      margin: 0 0 20px;
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.2rem, 4.2vw, 3.75rem);
-      line-height: 1.1;
-      letter-spacing: -0.5px;
-      text-shadow: 0 8px 30px rgba(0,0,0,0.6);
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      max-width: 760px;
-      margin: 0 auto 32px;
-      opacity: 0.95;
-      font-weight: 300;
-    }
-
-    .cta-row {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      border: 0;
-      padding: 14px 24px;
-      font-weight: 600;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      transition: var(--transition);
-      font-size: 1rem;
-      text-decoration: none;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--dark-blue);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(217,164,65,0.25);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: white;
-      border: 2px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(4px);
-    }
-
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.3);
-      transform: translateY(-4px);
-    }
-
-    /* Sections */
-    section {
-      padding: 100px 20px;
-      position: relative;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 60px;
-      color: white;
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      position: relative;
-    }
-
-    .section-title::after {
-      content: "";
-      display: block;
-      width: 80px;
-      height: 4px;
-      background: var(--gold);
-      margin: 15px auto;
-      border-radius: 2px;
-    }
-
-    .wrap {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    /* Beneficios section */
-    .benefits {
-      background: 
-        linear-gradient(rgba(11,37,69,0.9), rgba(11,37,69,0.95)),
-        url('https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-    }
-
-    .benefit-card {
-      background: var(--glass);
-      padding: 30px;
-      border-radius: var(--border-radius);
-      backdrop-filter: blur(8px);
-      color: var(--text-white);
-      border: 1px solid var(--glass-light);
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .benefit-card:hover {
-      transform: translateY(-10px);
-      background: rgba(255,255,255,0.12);
-    }
-
-    .benefit-icon {
-      font-size: 2.5rem;
-      color: var(--gold);
-      margin-bottom: 20px;
-    }
-
-    .benefit-card h3 {
-      color: var(--gold-light);
-      margin-bottom: 15px;
-      font-size: 1.4rem;
-    }
-
-    /* Programa: two columns */
-    .program {
-      background: 
-        linear-gradient(rgba(11,37,69,0.8), rgba(11,37,69,0.85)),
-        url('https://images.unsplash.com/photo-1584824486537-52a5e98369b9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-    }
-
-    .program-grid {
-      display: grid;
-      grid-template-columns: 1fr 460px;
-      gap: 48px;
-      align-items: center;
-    }
-
-    .program-card {
-      background: var(--glass);
-      padding: 36px;
-      border-radius: var(--border-radius);
-      backdrop-filter: blur(8px);
-      box-shadow: var(--shadow-lg);
-      color: var(--text-white);
-      border: 1px solid var(--glass-light);
-    }
-
-    .program-card h3 {
-      font-family: 'Playfair Display', serif;
-      margin-top: 0;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      color: var(--gold-light);
-    }
-
-    .program-card p {
-      margin-bottom: 20px;
-    }
-
-    .program-card ul {
-      color: var(--text-white);
-      line-height: 1.8;
-      padding-left: 20px;
-      margin-bottom: 20px;
-    }
-
-    .program-card li {
-      margin-bottom: 8px;
-      position: relative;
-    }
-
-    .program-card li::marker {
-      color: var(--gold);
-    }
-
-    .program-image {
-      width: 100%;
-      height: 380px;
-      border-radius: var(--border-radius);
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      transition: var(--transition);
-    }
-
-    .program-image:hover {
-      transform: translateY(-5px);
-    }
-
-    .program-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: var(--transition);
-    }
-
-    .program-image:hover img {
-      transform: scale(1.05);
-    }
-
-    /* Instructor section */
-    .instructor {
-      background: 
-        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
-        url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-      text-align: center;
-    }
-
-    .instructor-grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 40px;
-      align-items: center;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .instructor-image {
-      width: 100%;
-      height: 350px;
-      border-radius: 50%;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-      border: 5px solid var(--gold);
-    }
-
-    .instructor-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .instructor-info {
-      text-align: left;
-      color: white;
-    }
-
-    .instructor-info h3 {
-      color: var(--gold);
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    .instructor-title {
-      color: var(--gold-light);
-      font-style: italic;
-      margin-bottom: 20px;
-      display: block;
-    }
-
-    /* Testimonials mejorados */
-    .testimonials {
-      background: 
-        linear-gradient(rgba(11,37,69,0.9), rgba(11,37,69,0.95)),
-        url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 36px;
-    }
-
-    .testimonio-card {
-      background: var(--card-bg);
-      border-radius: var(--border-radius);
-      padding: 24px;
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .testimonio-card::before {
-      content: """;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      font-size: 80px;
-      color: var(--gold);
-      opacity: 0.1;
-      font-family: serif;
-      line-height: 1;
-    }
-
-    .testimonio-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .testimonio-avatar {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      overflow: hidden;
-      box-shadow: var(--shadow-md);
-      border: 3px solid var(--gold);
-    }
-
-    .testimonio-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .testimonio-body p {
-      margin: 0 0 12px;
-      font-style: italic;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    .testimonio-name {
-      font-weight: 700;
-      color: var(--dark-blue);
-      font-size: 0.95rem;
-    }
-
-    /* FAQ section */
-    .faq {
-      background: 
-        linear-gradient(rgba(11,37,69,0.85), rgba(11,37,69,0.9)),
-        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
-    }
-
-    .accordion {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .accordion-item {
-      background: var(--glass);
-      border-radius: var(--border-radius);
-      margin-bottom: 15px;
-      overflow: hidden;
-      border: 1px solid var(--glass-light);
-      backdrop-filter: blur(6px);
-    }
-
-    .accordion-header {
-      padding: 20px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: white;
-      font-weight: 500;
-    }
-
-    .accordion-header i {
-      transition: var(--transition);
-    }
-
-    .accordion-content {
-      padding: 0 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, padding 0.3s ease;
-      color: var(--text-white);
-    }
-
-    .accordion-item.active .accordion-content {
-      max-height: 300px;
-      padding: 0 20px 20px;
-    }
-
-    .accordion-item.active .accordion-header i {
-      transform: rotate(180deg);
-    }
-
-    /* Floating enroll button */
-    .floating-cta {
-      position: fixed;
-      right: 30px;
-      bottom: 30px;
-      z-index: 70;
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 14px 20px;
-      border-radius: 999px;
-      cursor: pointer;
-      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-      color: var(--dark-blue);
-      font-weight: 700;
-      box-shadow: 0 20px 50px rgba(11,37,69,0.3);
-      transition: var(--transition);
-      border: none;
-      font-size: 1rem;
-    }
-
-    .floating-cta:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 30px 60px rgba(11,37,69,0.4);
-    }
-
-    /* Footer mejorado */
-    footer {
-      padding: 50px 20px 30px;
-      background: linear-gradient(180deg, rgba(11,37,69,0.9), rgba(3,13,35,0.95));
-      color: var(--text-white-soft);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    footer::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    }
-
-    footer a {
-      color: var(--gold);
-      text-decoration: none;
-      font-weight: 600;
-      transition: var(--transition);
-      position: relative;
-    }
-
-    footer a::after {
-      content: "";
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 1px;
-      background: var(--gold);
-      transition: var(--transition);
-    }
-
-    footer a:hover::after {
-      width: 100%;
-    }
-
-    footer p {
-      margin-bottom: 10px;
-    }
-
-    /* Mobile menu (mejorado) */
-    #mobileMenu {
-      display: none;
-      position: fixed;
-      top: 80px;
-      left: 20px;
-      right: 20px;
-      z-index: 60;
-      background: rgba(11, 37, 69, 0.98);
-      border-radius: var(--border-radius);
-      padding: 20px;
-      box-shadow: var(--shadow-lg);
-      backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-light);
-      transform: translateY(-20px);
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    #mobileMenu.open {
-      display: block;
-      transform: translateY(0);
-      opacity: 1;
-    }
-
-    #mobileMenu a {
-      display: block;
-      padding: 12px 0;
-      color: white;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-      transition: var(--transition);
-    }
-
-    #mobileMenu a:last-child {
-      border-bottom: none;
-    }
-
-    #mobileMenu a:hover {
-      color: var(--gold);
-      padding-left: 10px;
-    }
-
-    /* Mejoras para el enlace de sílabo */
-    .syllabus-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 16px 24px;
-      background: rgba(255,255,255,0.96);
-      border-radius: var(--border-radius);
-      text-decoration: none;
-      color: var(--dark-blue);
-      font-weight: 700;
-      box-shadow: var(--shadow-md);
-      transition: var(--transition);
-      margin: 20px 0;
-    }
-
-    .syllabus-link:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .program-grid, .instructor-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      
-      .program-image {
-        height: 350px;
-        order: -1;
-      }
-
-      .instructor-image {
-        width: 250px;
-        height: 250px;
-        justify-self: center;
-      }
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 10px 20px;
-      }
-      
-      .hero {
-        height: auto;
-        min-height: auto;
-        padding: 100px 20px 80px;
-      }
-      
-      .cta-row {
-        flex-direction: column;
-        align-items: center;
-      }
-      
-      .btn {
-        width: 100%;
-        justify-content: center;
-      }
-      
-      nav {
-        display: none;
-      }
-      
-      .menu-btn {
-        display: inline-flex;
-      }
-      
-      section {
-        padding: 60px 20px;
-      }
-      
-      .program-card {
-        padding: 24px;
-      }
-      
-      .testimonials-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .section-title {
-        font-size: 2rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .brand h1 {
-        font-size: 1rem;
-      }
-      
-      .hero h2 {
-        font-size: 2rem;
-      }
-      
-      .hero p {
-        font-size: 1rem;
-      }
-      
-      .program-card {
-        padding: 20px;
-      }
-
-      .instructor-image {
-        width: 200px;
-        height: 200px;
-      }
-    }
-
-    @keyframes fadeUp {
-      from {
-        transform: translateY(20px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
-
-    /* Efectos de aparición para scroll */
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
-</head>
+  <link rel="stylesheet" href="style.css">
 <body>
   <header id="main-header">
     <div class="brand">
       <img src="https://i.postimg.cc/wMJ2bCgV/mas-logos.jpg" alt="Logo del ministerio">
-      <h1>Curso Griego Koiné</h1>
+      <h1>Curso de Griego Koiné</h1>
     </div>
 
     <nav aria-label="Navegación principal">
@@ -880,12 +44,12 @@
   <main>
     <section id="inicio" class="hero">
       <div class="content wrap">
-        <span class="kicker">Formación bíblica avanzada</span>
-        <h2>Aprende Griego Koiné — Lee el Nuevo Testamento en su idioma original</h2>
+        <span class="kicker">Interpretación bíblica avanzada</span>
+        <h2>Aprende Griego Koiné — Estudia el Nuevo Testamento en su idioma original</h2>
         <p>Curso intensivo y práctico: gramática, vocabulario bíblico y técnicas de traducción. Diseñado para líderes, estudiantes y pastores que desean profundizar en el texto original de las Escrituras.</p>
         <div class="cta-row">
           <button class="btn btn-primary" onclick="openForm()">
-            <i class="fas fa-pencil-alt"></i> Inscríbete aquí
+            <i class="fas fa-pencil-alt"></i> Inscríbete aquí.
           </button>
           <a class="btn btn-outline" href="#programa" role="button">
             <i class="fas fa-book-open"></i> Ver programa
@@ -903,7 +67,8 @@
               <i class="fas fa-bible"></i>
             </div>
             <h3>Estudio Bíblico Profundo</h3>
-            <p>Accede a los matices y significados originales del texto bíblico, perdiéndose en la mayoría de traducciones.</p>
+            <p>Accede a los matices y significados originales del texto bíblico, 
+              perdiéndose en la mayoría de traducciones.</p>
           </div>
           
           <div class="benefit-card fade-in">
@@ -911,7 +76,8 @@
               <i class="fas fa-users"></i>
             </div>
             <h3>Comunidad de Estudio</h3>
-            <p>Únete a una comunidad de estudiantes apasionados por las Escrituras y el aprendizaje del griego koiné.</p>
+            <p>Únete a una comunidad de estudiantes apasionados por las Escrituras
+               y el aprendizaje del griego koiné.</p>
           </div>
           
           <div class="benefit-card fade-in">
@@ -919,7 +85,8 @@
               <i class="fas fa-graduation-cap"></i>
             </div>
             <h3>Material Completo</h3>
-            <p>Recibe materiales de estudio diseñados específicamente para hispanohablantes, con ejercicios prácticos.</p>
+            <p>Recibe materiales de estudio diseñados específicamente para hispanohablantes, 
+              con ejercicios prácticos.</p>
           </div>
         </div>
       </div>
@@ -932,23 +99,28 @@
           <div class="program-card fade-in">
             <h3 id="titulo-programa">Plan de Estudios</h3>
             <p>
-              Este curso de griego koiné te permitirá leer el Nuevo Testamento en su idioma original. Aprenderás morfología, sintaxis, vocabulario bíblico y métodos de traducción exegética.
+              Este curso de griego koiné te permitirá leer el Nuevo Testamento 
+              en su idioma original. Aprenderás morfología, sintaxis, 
+              vocabulario bíblico y métodos de traducción exegética.
             </p>
             <ul>
-              <li><strong>Módulo 1</strong> — Alfabeto, pronunciación, y lectura básica. Introducción a las declinaciones.</li>
-              <li><strong>Módulo 2</strong> — Morfología nominal y verbal. Estudio de los tiempos griegos y su significado.</li>
-              <li><strong>Módulo 3</strong> — Sintaxis, oraciones y cláusulas. Uso de partículas griegas.</li>
-              <li><strong>Módulo 4</strong> — Lectura guiada de pasajes del Nuevo Testamento. Análisis exegético.</li>
-              <li><strong>Módulo 5</strong> — Taller de traducción y interpretación. Uso de herramientas digitales.</li>
+              <li><strong>Sección 1</strong> — Alfabeto, pronunciación, y lectura básica. Introducción a las declinaciones.</li>
+              <li><strong>Sección 2</strong> — Morfología nominal. Estudio de los sustantivos, casos, adjetivos, pronombres y preposiciones</li>
+              <li><strong>Sección 3</strong> — Morfología de los verbos en el modo indicativo. Aprende a identificar y traducir los tiempos verbales griegos</li>
+              <li><strong>Sección 4</strong> — Participios griegos. Domina el fascinante mundo de los participios, descubre su importancia exegética</li>
+              <li><strong>Sección 5</strong> — Modos no indicativos y conjugaciones atemáticas. Domina el contenido restante de griego II.</li>
             </ul>
 
             <p style="margin-top:12px">
-              <strong>Formato:</strong> Clases en vídeo, material descargable, ejercicios prácticos y sesiones en vivo de preguntas y respuestas.
-            </p>
+              <strong>Formato:</strong> Las secciones representan el contenido estándar internacional de griego I y II. 
+              El curso es 100 por ciento online. Tendrá contenido semanal disponible, junto a los recursos y herraminetas de la plataforma digital. 
+              Los facilitadores del ministerio estarán a su disposición, para aclarar dudas, y acompañarle en el proceso educativo. 
+              Trabajamos pensando en usted, adaptamos nuestros recursos a usted, nuestro corazón está con aquellos que desean estudiar
+              la Biblia con excelencia. ¡Ánimo y Adelante!            </p>
           </div>
 
-          <div class="program-image fade-in" aria-hidden="true">
-            <img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" alt="Imagen de manuscritos bíblicos">
+          <div id="NestleAland" class="program-image fade-in" aria-hidden="true">
+            <img src="assets/NestleAland.jpg" alt="Imagen de manuscritos bíblicos">
           </div>
         </div>
       </div>
@@ -956,16 +128,16 @@
 
     <section id="instructor" class="instructor">
       <div class="wrap">
-        <h2 class="section-title">Nuestro Instructor</h2>
+        <h2 class="section-title">Equipo de instructores</h2>
         <div class="instructor-grid">
           <div class="instructor-image fade-in">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Dr. Carlos Méndez, instructor del curso">
+            <img src="assets/mas logos.jpeg" alt="Logo del ministerio">
           </div>
           <div class="instructor-info fade-in">
-            <h3>Dr. Carlos Méndez</h3>
-            <span class="instructor-title">Ph.D. en Teología y Estudios Bíblicos</span>
-            <p>Con más de 15 años de experiencia enseñando griego koiné, el Dr. Méndez ha formado a cientos de estudiantes en el estudio de los textos bíblicos originales. Es autor de varios libros sobre exégesis del Nuevo Testamento y ha participado en proyectos de traducción bíblica.</p>
-            <p>Su enfoque pedagógico combina el rigor académico con la aplicación práctica para el estudio devocional y ministerial de la Biblia.</p>
+            <h3>Alrededor de 8 facilitadores disponibles para acompañar a nuestros alumnos</h3>
+            <span class="instructor-title">Contamos con profesores titulares acreditados, y facilitadores asistentes en proceso de acreditación</span>
+            <p> Una de las fortalezas de nuestro ministerio es nuestro equipo. Contamos con un grupo de profesores formados con nuestro método, apasionados de los idiomas bíblicos, y deseosos de servir a otros.</p>
+            <p>Todos nuestros facilitadores están en proceso de preparación metodológica para impartir sus clases con excelencia. Por otra parte, todos reciben estudios superiores (griegoIII) para poder apoyarles con el contenido más actualizado</p>
           </div>
         </div>
       </div>
@@ -978,35 +150,37 @@
 
         <div class="testimonials-grid">
           <!-- Testimonial 1 -->
-          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de María">
+          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de Alexei">
             <div class="testimonio-avatar">
-              <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de María G.">
+              <img src="assets/alexei.jpg" alt="Foto de Alexei">
             </div>
             <div class="testimonio-body">
-              <p>"Gracias a este curso, ahora puedo estudiar las cartas de Pablo en griego. ¡Revolucionó mi comprensión de la Biblia! Las explicaciones son claras y los ejercicios muy prácticos."</p>
-              <div class="testimonio-name">— María G., Pastora, 2023</div>
+              <p>"Para mi ha sido de bendición, me ha ayudado a entender con mayor claridad las profundidades de la Palabra de Dios. Este curso me ha acercado más a Dios."</p>
+              <div class="testimonio-name">— Alexei Lores Lamorú, Pastor. Estudiante del STBCOr. 2025 </div>
             </div>
           </article>
 
           <!-- Testimonial 2 -->
-          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de José">
+          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de Alejandro">
             <div class="testimonio-avatar">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de José R.">
+              <img src="assets/alejandro.jpg" alt="Foto de Alejandro">
             </div>
             <div class="testimonio-body">
-              <p>"Las explicaciones prácticas y los ejemplos textuales me dieron confianza para enseñar en el seminario. El Dr. Méndez hace accesible un lenguaje que parecía intimidante."</p>
-              <div class="testimonio-name">— José R., Profesor de Teología, 2022</div>
+              <p>"me ha servido para comprender un poco cuan profundo y muchas veces desconocido 
+                es el lenguaje de la Biblia, 
+                ademas me ha permitido motivar a la iglesia hacia el estudio exhaustivo de las Sagradas Escrituras "</p>
+              <div class="testimonio-name">— Alejandro Foubelo. Pastor de la 3ra IB de Santiago. Estudiante del STBCOr. 2025</div>
             </div>
           </article>
 
           <!-- Testimonial 3 -->
-          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de Ana">
+          <article class="testimonio-card fade-in" role="article" aria-label="Testimonio de Daniel">
             <div class="testimonio-avatar">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=400&q=80" alt="Foto de Ana M.">
+              <img src="assets/Daniel.jpg" alt="Foto de Daniel.">
             </div>
             <div class="testimonio-body">
-              <p>"Excelente equilibrio entre teoría y práctica. El material descargable es muy útil para repasar. Ahora puedo leer los evangelios en su lengua original con comprensión."</p>
-              <div class="testimonio-name">— Ana M., Estudiante de Teología, 2024</div>
+              <p>"Este curso me ha ayudado a valorar mas la Palabra de Dios"</p>
+              <div class="testimonio-name">— Daniel Ramírez, misionero, 2025</div>
             </div>
           </article>
 
@@ -1055,7 +229,7 @@
               <i class="fas fa-chevron-down"></i>
             </div>
             <div class="accordion-content">
-              <p>Sí, al completar satisfactoriamente todos los módulos y evaluaciones, recibirás un certificado de finalización avalado por nuestro ministerio.</p>
+              <p>No, en este momento el curso ofrece unicamente la herramienta y el conocimiento. Trabajamos en base a una acreditación futura.</p>
             </div>
           </div>
         </div>
@@ -1076,8 +250,7 @@
 
   <footer>
     <div class="wrap">
-      <p>© <strong>Ministerio de Estudios Bíblicos</strong> — Curso de Griego Koiné. <a href="syllabus.pdf" target="_blank" rel="noopener">Ver sílabo</a> • Diseño y contenido pedagógico.</p>
-      <p style="margin-top:6px;font-size:.92rem;color:rgba(255,255,255,0.78)">Sugerencia: sube estos archivos al repositorio de GitHub y activa GitHub Pages (branch main).</p>
+      <p>© <strong>Ministerio: "Vivos para Servir"</strong> — Curso de Griego Koiné. <a href="syllabus.pdf" target="_blank" rel="noopener">Ver sílabo</a> • Diseño y contenido pedagógico.</p>
     </div>
   </footer>
 
