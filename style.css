@@ -611,6 +611,17 @@
       box-shadow: 0 30px 60px rgba(11,37,69,0.4);
     }
 
+    #enlace {
+      text-decoration: none;
+      color: var(--gold-dark);
+      font-weight: bolder;
+    }
+
+    #enlace:hover {
+      text-decoration: underline;
+      
+    }
+
     /* Footer mejorado */
     footer {
       padding: 50px 20px 30px;
